@@ -632,18 +632,18 @@ const Portfolio = () => {
           <StyledCard sx={{ mb: 4 }}>
             <CardContent sx={{ p: 3 }}>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-                <SecurityIcon sx={{ color: '#ef4444', mr: 1.5, fontSize: 24 }} />
+                <SecurityIcon sx={{ color: '#10b981', mr: 1.5, fontSize: 24 }} />
                 <Typography variant="h5" fontWeight="bold" color="primary">
                   Cybersecurity
                 </Typography>
               </Box>
-              <Divider sx={{ mb: 3, borderColor: '#ef444440' }} />
+              <Divider sx={{ mb: 3, borderColor: '#10b98140' }} />
               <Box>
                 {skills.security.map((skill, index) => (
                   <SkillBubble
                     key={index}
                     skill={skill}
-                    color="#ef4444"
+                    color="#10b981"
                     delay={index * 100}
                   />
                 ))}
