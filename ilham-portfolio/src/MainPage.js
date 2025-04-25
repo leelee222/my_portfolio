@@ -270,7 +270,7 @@ const Portfolio = () => {
   const skills = {
     devops: ["Docker", "Jenkins", "Ansible", "Kubernetes", "GitHub Actions", "GitLab", "CI/CD"],
     security: ["Nmap", "Metasploit", "Burp Suite", "Wireshark", "Hydra", "SQLMap", "John the Ripper", "OSINT Framework"],
-    osint: ["Maltego", "SpiderFoot", "TheHarvester", "Sherlock", "ExifTool", "OSINT", "Forensics"],
+    osint: ["Maltego", "SpiderFoot", "TheHarvester", "Sherlock", "ExifTool", "OSINT Analysis", "Digital Forensics", "GEOINT"],
     development: ["Python", "C", "C++", "JavaScript", "React", "Node.js", "SQL", "HTML/CSS", "Flask", "NextJS", "VueJS", "MongoDB", "Git", "Django"],
     general: ["UI/UX Design", "Figma", "Microsoft Office", "REST API", "CRUD"]
   };
@@ -764,7 +764,6 @@ const Portfolio = () => {
           </Box>
         </Box>
 
-        // Replace the current cybersecurity achievements section with this improved version:
 
         <Box id="education" sx={{ minHeight: '50vh', py: 8, px: { xs: 1, md: 4 } }}>
           <Fade in={true} timeout={1000}>
