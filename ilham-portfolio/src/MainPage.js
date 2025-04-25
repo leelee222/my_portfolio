@@ -32,8 +32,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FolderSpecialIcon from '@mui/icons-material/FolderSpecial';
 import BusinessIcon from '@mui/icons-material/Business';
 import Divider from '@mui/material/Divider';
+import DevicesIcon from '@mui/icons-material/Devices';
+import SearchIcon from '@mui/icons-material/Search';
 
-// Create custom styled components
 const StyledCard = styled(Card)(({ theme }) => ({
   borderRadius: 20,
   transition: 'all 0.3s ease',
@@ -267,7 +268,9 @@ const Portfolio = () => {
   ];
 
   const skills = {
-    devops: ["Docker", "Jenkins", "Ansible", "Kubernetes", "GitHub Actions", "GitLab", "Pentesting Tools", "OSINT", "Forensics"],
+    devops: ["Docker", "Jenkins", "Ansible", "Kubernetes", "GitHub Actions", "GitLab", "CI/CD"],
+    security: ["Nmap", "Metasploit", "Burp Suite", "Wireshark", "Hydra", "SQLMap", "John the Ripper", "OSINT Framework"],
+    osint: ["Maltego", "SpiderFoot", "TheHarvester", "Sherlock", "ExifTool", "OSINT", "Forensics"],
     development: ["Python", "C", "C++", "JavaScript", "React", "Node.js", "SQL", "HTML/CSS", "Flask", "NextJS", "VueJS", "MongoDB", "Git", "Django"],
     general: ["UI/UX Design", "Figma", "Microsoft Office", "REST API", "CRUD"]
   };
@@ -299,50 +302,49 @@ const Portfolio = () => {
     </Zoom>
   );
 
-  // Replace the current CatAvatar component with this one
-const CatAvatar = () => {
-  return (
-    <Box sx={{ 
-      position: 'relative', 
-      width: 220, 
-      height: 220, 
-      margin: '0 auto', 
-      animation: 'float 4s ease-in-out infinite',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center'
-    }}>
-      <Box
-        component="img"
-        src="/cat-avatar.png"
-        alt="Profile Avatar"
-        sx={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'contain',
-          animation: 'glow 3s ease-in-out infinite',
-          filter: 'drop-shadow(0 0 8px rgba(160, 145, 230, 0.5))',
-          borderRadius: '50%',
-        }}
-      />
-      
-      {/* DevSecOps badge */}
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: 10,
-          right: 10,
-          bgcolor: 'background.paper',
-          borderRadius: '50%',
-          p: 0.5,
-          boxShadow: 3
-        }}
-      >
-        <SecurityIcon sx={{ fontSize: 34, color: 'primary.main' }} />
+  const CatAvatar = () => {
+    return (
+      <Box sx={{
+        position: 'relative',
+        width: 220,
+        height: 220,
+        margin: '0 auto',
+        animation: 'float 4s ease-in-out infinite',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <Box
+          component="img"
+          src="/cat-avatar.png"
+          alt="Profile Avatar"
+          sx={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
+            animation: 'glow 3s ease-in-out infinite',
+            filter: 'drop-shadow(0 0 8px rgba(160, 145, 230, 0.5))',
+            borderRadius: '50%',
+          }}
+        />
+
+        {/* DevSecOps badge */}
+        <Box
+          sx={{
+            position: 'absolute',
+            bottom: 10,
+            right: 10,
+            bgcolor: 'background.paper',
+            borderRadius: '50%',
+            p: 0.5,
+            boxShadow: 3
+          }}
+        >
+          <SecurityIcon sx={{ fontSize: 34, color: 'primary.main' }} />
+        </Box>
       </Box>
-    </Box>
-  );
-};
+    );
+  };
 
   const ProjectCard = ({ project, index }) => (
     <Slide in={true} direction="up" timeout={500 + (index * 100)}>
@@ -604,86 +606,116 @@ const CatAvatar = () => {
           </Box>
         </Box>
 
-        <Box id="skills" sx={{ minHeight: '60vh', py: 8, px: { xs: 1, md: 4 } }}>
-          <Fade in={true} timeout={1000}>
-            <Box sx={{ mb: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <Typography variant="h2" color="primary" gutterBottom>
-                Skills
-              </Typography>
-              <Divider sx={{ width: '80px', height: '3px', bgcolor: 'primary.main', mb: 4 }} />
-              <Typography variant="body1" sx={{ textAlign: 'center', maxWidth: '800px', mb: 3 }}>
-                My technical toolkit spans DevOps, software development, and general digital competencies.
-              </Typography>
-            </Box>
-          </Fade>
+        <Box id="skills" sx={{ mt: 3, maxWidth: '900px', mx: 'auto' }}>
+          <StyledCard sx={{ mb: 4 }}>
+            <CardContent sx={{ p: 3 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
+                <DevicesIcon sx={{ color: '#6366f1', mr: 1.5, fontSize: 24 }} />
+                <Typography variant="h5" fontWeight="bold" color="primary">
+                  DevOps
+                </Typography>
+              </Box>
+              <Divider sx={{ mb: 3, borderColor: '#6366f140' }} />
+              <Box>
+                {skills.devops.map((skill, index) => (
+                  <SkillBubble
+                    key={index}
+                    skill={skill}
+                    color="#6366f1"
+                    delay={index * 100}
+                  />
+                ))}
+              </Box>
+            </CardContent>
+          </StyledCard>
 
-          <Box sx={{ mt: 3, maxWidth: '900px', mx: 'auto' }}>
-            <StyledCard sx={{ mb: 4 }}>
-              <CardContent sx={{ p: 3 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-                  <SecurityIcon sx={{ color: '#6366f1', mr: 1.5, fontSize: 24 }} />
-                  <Typography variant="h5" fontWeight="bold" color="primary">
-                    DevOps & Security
-                  </Typography>
-                </Box>
-                <Divider sx={{ mb: 3, borderColor: '#6366f140' }} />
-                <Box>
-                  {skills.devops.map((skill, index) => (
-                    <SkillBubble
-                      key={index}
-                      skill={skill}
-                      color="#6366f1"
-                      delay={index * 100}
-                    />
-                  ))}
-                </Box>
-              </CardContent>
-            </StyledCard>
+          <StyledCard sx={{ mb: 4 }}>
+            <CardContent sx={{ p: 3 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
+                <SecurityIcon sx={{ color: '#ef4444', mr: 1.5, fontSize: 24 }} />
+                <Typography variant="h5" fontWeight="bold" color="primary">
+                  Cybersecurity
+                </Typography>
+              </Box>
+              <Divider sx={{ mb: 3, borderColor: '#ef444440' }} />
+              <Box>
+                {skills.security.map((skill, index) => (
+                  <SkillBubble
+                    key={index}
+                    skill={skill}
+                    color="#ef4444"
+                    delay={index * 100}
+                  />
+                ))}
+              </Box>
+            </CardContent>
+          </StyledCard>
 
-            <StyledCard sx={{ mb: 4 }}>
-              <CardContent sx={{ p: 3 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-                  <CodeIcon sx={{ color: '#8b5cf6', mr: 1.5, fontSize: 24 }} />
-                  <Typography variant="h5" fontWeight="bold" color="primary">
-                    Development
-                  </Typography>
-                </Box>
-                <Divider sx={{ mb: 3, borderColor: '#8b5cf640' }} />
-                <Box>
-                  {skills.development.map((skill, index) => (
-                    <SkillBubble
-                      key={index}
-                      skill={skill}
-                      color="#8b5cf6"
-                      delay={index * 100}
-                    />
-                  ))}
-                </Box>
-              </CardContent>
-            </StyledCard>
+          <StyledCard sx={{ mb: 4 }}>
+            <CardContent sx={{ p: 3 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
+                <SearchIcon sx={{ color: '#f59e0b', mr: 1.5, fontSize: 24 }} />
+                <Typography variant="h5" fontWeight="bold" color="primary">
+                  OSINT & Investigation
+                </Typography>
+              </Box>
+              <Divider sx={{ mb: 3, borderColor: '#f59e0b40' }} />
+              <Box>
+                {skills.osint.map((skill, index) => (
+                  <SkillBubble
+                    key={index}
+                    skill={skill}
+                    color="#f59e0b"
+                    delay={index * 100}
+                  />
+                ))}
+              </Box>
+            </CardContent>
+          </StyledCard>
 
-            <StyledCard>
-              <CardContent sx={{ p: 3 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-                  <WorkIcon sx={{ color: '#a78bfa', mr: 1.5, fontSize: 24 }} />
-                  <Typography variant="h5" fontWeight="bold" color="primary">
-                    General
-                  </Typography>
-                </Box>
-                <Divider sx={{ mb: 3, borderColor: '#a78bfa40' }} />
-                <Box>
-                  {skills.general.map((skill, index) => (
-                    <SkillBubble
-                      key={index}
-                      skill={skill}
-                      color="#a78bfa"
-                      delay={index * 100}
-                    />
-                  ))}
-                </Box>
-              </CardContent>
-            </StyledCard>
-          </Box>
+          <StyledCard sx={{ mb: 4 }}>
+            <CardContent sx={{ p: 3 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
+                <CodeIcon sx={{ color: '#8b5cf6', mr: 1.5, fontSize: 24 }} />
+                <Typography variant="h5" fontWeight="bold" color="primary">
+                  Development
+                </Typography>
+              </Box>
+              <Divider sx={{ mb: 3, borderColor: '#8b5cf640' }} />
+              <Box>
+                {skills.development.map((skill, index) => (
+                  <SkillBubble
+                    key={index}
+                    skill={skill}
+                    color="#8b5cf6"
+                    delay={index * 100}
+                  />
+                ))}
+              </Box>
+            </CardContent>
+          </StyledCard>
+
+          <StyledCard>
+            <CardContent sx={{ p: 3 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
+                <WorkIcon sx={{ color: '#a78bfa', mr: 1.5, fontSize: 24 }} />
+                <Typography variant="h5" fontWeight="bold" color="primary">
+                  General
+                </Typography>
+              </Box>
+              <Divider sx={{ mb: 3, borderColor: '#a78bfa40' }} />
+              <Box>
+                {skills.general.map((skill, index) => (
+                  <SkillBubble
+                    key={index}
+                    skill={skill}
+                    color="#a78bfa"
+                    delay={index * 100}
+                  />
+                ))}
+              </Box>
+            </CardContent>
+          </StyledCard>
         </Box>
 
         <Box id="projects" sx={{ minHeight: '60vh', py: 8, px: { xs: 1, md: 4 } }}>
@@ -732,7 +764,189 @@ const CatAvatar = () => {
           </Box>
         </Box>
 
+        // Replace the current cybersecurity achievements section with this improved version:
+
         <Box id="education" sx={{ minHeight: '50vh', py: 8, px: { xs: 1, md: 4 } }}>
+          <Fade in={true} timeout={1000}>
+            <Box sx={{ mb: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Typography variant="h2" color="primary" gutterBottom>
+                Education
+              </Typography>
+              <Divider sx={{ width: '80px', height: '3px', bgcolor: 'primary.main', mb: 4 }} />
+            </Box>
+          </Fade>
+
+          <Grid container spacing={4} justifyContent="center">
+            <Grid item xs={12} md={10} lg={8}>
+              <Slide in={true} direction="up" timeout={800}>
+                <StyledCard sx={{ height: '100%', overflow: 'visible', position: 'relative', mb: 5 }}>
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      top: -25,
+                      left: { xs: 20, md: 40 },
+                      bgcolor: theme.palette.primary.main,
+                      p: 1.5,
+                      borderRadius: 2,
+                      boxShadow: 3
+                    }}
+                  >
+                    <SchoolIcon sx={{ color: 'white', fontSize: 32 }} />
+                  </Box>
+                  <Box sx={{ p: { xs: 3, md: 4 }, pt: { xs: 4, md: 5 } }}>
+                    <Typography variant="h4" fontWeight="bold" color="primary" sx={{ mb: 2 }}>
+                      EPITECH BENIN
+                    </Typography>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+                      <Typography variant="h6" fontWeight="medium">
+                        Bachelor Degree in Computer Science
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          bgcolor: 'primary.main',
+                          color: 'white',
+                          px: 2,
+                          py: 0.5,
+                          borderRadius: 5,
+                          fontWeight: 'medium'
+                        }}
+                      >
+                        Oct. 2022 – Present
+                      </Typography>
+                    </Box>
+                    <Divider sx={{ mb: 3, borderColor: 'primary.light' }} />
+                    <Typography variant="h6" sx={{ mb: 1.5 }}>
+                      Relevant Coursework:
+                    </Typography>
+                    <Grid container spacing={2} sx={{ mb: 4 }}>
+                      {['Data Structures', 'Algorithms', 'DevOps', 'Software Engineering'].map((course, i) => (
+                        <Grid item xs={12} sm={6} md={3} key={i}>
+                          <Box
+                            sx={{
+                              bgcolor: `${theme.palette.primary.main}15`,
+                              p: 1.5,
+                              borderRadius: 2,
+                              textAlign: 'center',
+                              border: `1px solid ${theme.palette.primary.main}30`,
+                              height: '100%',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              transition: 'all 0.3s ease',
+                              '&:hover': {
+                                transform: 'translateY(-3px)',
+                                bgcolor: `${theme.palette.primary.main}25`,
+                              }
+                            }}
+                          >
+                            <Typography variant="body1" fontWeight="medium">
+                              {course}
+                            </Typography>
+                          </Box>
+                        </Grid>
+                      ))}
+                    </Grid>
+
+                    {/* Integrated Cybersecurity Achievements in the same card */}
+                    <Divider sx={{ mb: 3, borderColor: 'primary.light' }} />
+                    <Typography variant="h6" sx={{ mb: 2, color: 'primary.main' }}>
+                      Cybersecurity Achievements:
+                    </Typography>
+
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} md={6}>
+                        <Box
+                          sx={{
+                            p: 2,
+                            borderRadius: 2,
+                            bgcolor: `${theme.palette.primary.main}10`,
+                            border: `1px solid ${theme.palette.primary.main}30`,
+                            height: '100%',
+                            transition: 'all 0.3s ease',
+                            '&:hover': {
+                              transform: 'translateY(-3px)',
+                              boxShadow: '0 5px 15px rgba(0,0,0,0.1)',
+                            }
+                          }}
+                        >
+                          <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
+                            <Box
+                              sx={{
+                                bgcolor: '#ef4444',
+                                p: 1,
+                                borderRadius: '50%',
+                                mr: 2,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                              }}
+                            >
+                              <SecurityIcon sx={{ color: 'white', fontSize: 20 }} />
+                            </Box>
+                            <Box>
+                              <Typography variant="body1" fontWeight="bold" sx={{ mb: 1 }}>
+                                Hackerlab 2024 – Top 10
+                              </Typography>
+                              <Typography variant="body2" color="text.secondary">
+                                Competed in various challenges including web vulnerabilities and OSINT exploitation
+                              </Typography>
+                            </Box>
+                          </Box>
+                        </Box>
+                      </Grid>
+
+                      <Grid item xs={12} md={6}>
+                        <Box
+                          sx={{
+                            p: 2,
+                            borderRadius: 2,
+                            bgcolor: `${theme.palette.primary.main}10`,
+                            border: `1px solid ${theme.palette.primary.main}30`,
+                            height: '100%',
+                            transition: 'all 0.3s ease',
+                            '&:hover': {
+                              transform: 'translateY(-3px)',
+                              boxShadow: '0 5px 15px rgba(0,0,0,0.1)',
+                            }
+                          }}
+                        >
+                          <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
+                            <Box
+                              sx={{
+                                bgcolor: '#f59e0b',
+                                p: 1,
+                                borderRadius: '50%',
+                                mr: 2,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                              }}
+                            >
+                              <SearchIcon sx={{ color: 'white', fontSize: 20 }} />
+                            </Box>
+                            <Box>
+                              <Typography variant="body1" fontWeight="bold" sx={{ mb: 1 }}>
+                                OSINT Investigations
+                              </Typography>
+                              <Typography variant="body2" color="text.secondary">
+                                Conducted OSINT investigations on anonymized targets – Research and analysis of public data
+                              </Typography>
+                            </Box>
+                          </Box>
+                        </Box>
+                      </Grid>
+                    </Grid>
+                  </Box>
+                </StyledCard>
+              </Slide>
+            </Grid>
+          </Grid>
+        </Box>
+
+        {/* Remove the separate divider and Cybersecurity Achievements section */}
+
+        {/* <Box id="education" sx={{ minHeight: '50vh', py: 8, px: { xs: 1, md: 4 } }}>
           <Fade in={true} timeout={1000}>
             <Box sx={{ mb: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <Typography variant="h2" color="primary" gutterBottom>
@@ -819,6 +1033,38 @@ const CatAvatar = () => {
             </Grid>
           </Grid>
         </Box>
+
+        <Divider sx={{ my: 3, borderColor: 'primary.light' }} />
+
+        <Typography variant="h6" sx={{ mb: 1.5 }}>
+          Cybersecurity Achievements:
+        </Typography>
+
+        <Box sx={{ mb: 2 }}>
+          <Box sx={{ display: 'flex', alignItems: 'flex-start', mb: 2 }}>
+            <SecurityIcon sx={{ color: theme.palette.primary.main, mr: 1.5, fontSize: 20, mt: 0.5 }} />
+            <Box>
+              <Typography variant="body1" fontWeight="medium">
+                Hackerlab 2024 – Top 10 (CTF & Cybersecurity)
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Competed in various challenges including web vulnerabilities and OSINT exploitation
+              </Typography>
+            </Box>
+          </Box>
+
+          <Box sx={{ display: 'flex', alignItems: 'flex-start', mb: 2 }}>
+            <SearchIcon sx={{ color: theme.palette.primary.main, mr: 1.5, fontSize: 20, mt: 0.5 }} />
+            <Box>
+              <Typography variant="body1" fontWeight="medium">
+                OSINT Investigations
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Conducted OSINT investigations on anonymized targets – Research and analysis of public data
+              </Typography>
+            </Box>
+          </Box>
+        </Box> */}
 
         <Box id="contact" sx={{ minHeight: '60vh', py: 10, pb: 20 }}>
           <Fade in={true} timeout={1000}>
