@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { 
-  Box, 
-  Container, 
-  Typography, 
-  Grid, 
-  Card, 
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Card,
   CardContent,
-  Button, 
-  ThemeProvider, 
-  createTheme, 
+  Button,
+  ThemeProvider,
+  createTheme,
   CssBaseline,
   IconButton,
   TextField,
@@ -29,6 +29,9 @@ import WorkIcon from '@mui/icons-material/Work';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import FolderSpecialIcon from '@mui/icons-material/FolderSpecial';
+import BusinessIcon from '@mui/icons-material/Business';
+import Divider from '@mui/material/Divider';
 
 // Create custom styled components
 const StyledCard = styled(Card)(({ theme }) => ({
@@ -89,7 +92,6 @@ const GlowingText = styled(Typography)(({ theme }) => ({
   }
 }));
 
-// Create a custom theme with font imports
 const getTheme = (mode) => createTheme({
   palette: {
     mode,
@@ -108,13 +110,13 @@ const getTheme = (mode) => createTheme({
     }
   },
   typography: {
-    fontFamily: "'Nunito', 'Roboto', sans-serif",
+    fontFamily: "'Lexend', 'Roboto', sans-serif",
     h2: {
-      fontWeight: 800,
+      fontWeight: 700,
       letterSpacing: '-0.5px',
     },
     h5: {
-      fontWeight: 700,
+      fontWeight: 600,
     },
   },
   shape: {
@@ -123,10 +125,41 @@ const getTheme = (mode) => createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: `
-        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+        @font-face {
+          font-family: 'Lexend';
+          font-style: normal;
+          font-weight: 400;
+          src: url('/Lexend-Regular.ttf') format('truetype');
+          font-display: swap;
+        }
+        
+        @font-face {
+          font-family: 'Lexend';
+          font-style: normal;
+          font-weight: 500;
+          src: url('/Lexend-Medium.ttf') format('truetype');
+          font-display: swap;
+        }
+        
+        @font-face {
+          font-family: 'Lexend';
+          font-style: normal;
+          font-weight: 600;
+          src: url('/Lexend-SemiBold.ttf') format('truetype');
+          font-display: swap;
+        }
+        
+        @font-face {
+          font-family: 'Lexend';
+          font-style: normal;
+          font-weight: 700;
+          src: url('/Lexend-Bold.ttf') format('truetype');
+          font-display: swap;
+        }
         
         body {
           scroll-behavior: smooth;
+          font-family: 'Lexend', sans-serif;
         }
         
         ::-webkit-scrollbar {
@@ -171,110 +204,77 @@ const Portfolio = () => {
   const [mode, setMode] = useState('dark');
   const [activeSection, setActiveSection] = useState('about');
   const theme = React.useMemo(() => getTheme(mode), [mode]);
-  
+
   const toggleTheme = () => {
     setMode(prevMode => prevMode === 'dark' ? 'light' : 'dark');
   };
-  
-  // Projects data
+
   const projects = [
     {
       title: "AREA",
-      description: "Task automation platform (IFTTT type) with ReactJS, Redux, JWT auth, and Tailwind CSS.",
-      tech: ["React", "Redux", "Tailwind", "JWT"],
+      description: "Task automation platform (IFTTT-like) built using ReactJS, Redux, and JWT authentication.",
+      tech: ["React", "Redux", "REST API", "JWT"],
       color: "#6366f1"
     },
     {
-      title: "DevOps Project",
-      description: "Containerized deployment with CI/CD pipelines and server automation.",
-      tech: ["Kubernetes", "Docker", "Jenkins", "Ansible"],
+      title: "Whanos",
+      description: "CI/CD infrastructure project integrating Docker, Jenkins, and Kubernetes for automated deployment.",
+      tech: ["Docker", "Jenkins", "Kubernetes", "IaC"],
       color: "#8b5cf6"
     },
     {
-      title: "Trellix",
-      description: "Shopping website with WordPress and responsive designs from Figma.",
-      tech: ["WordPress", "Figma", "HTML/CSS"],
+      title: "Personal Portfolio",
+      description: "Interactive portfolio website built with React and Material UI with dark/light mode and animations.",
+      tech: ["React", "Material UI", "JavaScript", "Responsive Design"],
       color: "#a78bfa"
     }
   ];
-  
-  // Skills data
+
+  const workExperience = [
+    {
+      company: "CDPAT-AFRIQUE",
+      role: "Fullstack Development Intern",
+      period: "Oct 2024 - Jan 2025",
+      description: [
+        "Developed with ReactJS for frontend and Django for backend services",
+        "Implemented CI/CD pipelines for automated testing and deployment",
+        "Built RESTful APIs and integrated database functionality"
+      ],
+      color: "#8b5cf6"
+    },
+    {
+      company: "TRELLIX",
+      role: "Front-End Intern",
+      period: "Aug 2023 - Nov 2023",
+      description: [
+        "Developed a WordPress shopping website with enhanced UX",
+        "Translated Figma designs into responsive front-end code",
+        "Collaborated with design and development teams to maintain consistency"
+      ],
+      color: "#a78bfa"
+    },
+    {
+      company: "EPITECH X IMPACT",
+      role: "Training Volunteer",
+      period: "July 2024 - Aug 2024",
+      description: [
+        "Engaged with participants through interactive training sessions",
+        "Provided hands-on training in Microsoft Office applications",
+        "Taught digital security fundamentals and best practices"
+      ],
+      color: "#c084fc"
+    }
+  ];
+
   const skills = {
-    devops: ["Docker", "Jenkins", "Ansible", "Kubernetes", "GitHub Actions", "Pentesting"],
-    development: ["React", "JavaScript", "HTML/CSS", "Node.js", "NextJS", "VueJS"],
-    general: ["UI/UX Design", "Microsoft Office", "Git", "REST API"]
+    devops: ["Docker", "Jenkins", "Ansible", "Kubernetes", "GitHub Actions", "GitLab", "Pentesting Tools", "OSINT", "Forensics"],
+    development: ["Python", "C", "C++", "JavaScript", "React", "Node.js", "SQL", "HTML/CSS", "Flask", "NextJS", "VueJS", "MongoDB", "Git", "Django"],
+    general: ["UI/UX Design", "Figma", "Microsoft Office", "REST API", "CRUD"]
   };
 
-  // Cat Avatar component with animation
-  const CatAvatar = () => {
-    return (
-      <Box sx={{ position: 'relative', width: 180, height: 180, margin: '0 auto', animation: 'float 4s ease-in-out infinite' }}>
-        <Box
-          component="svg"
-          viewBox="0 0 200 200"
-          width={180}
-          height={180}
-          sx={{ 
-            position: 'absolute', 
-            top: 0, 
-            left: 0,
-            animation: 'glow 3s ease-in-out infinite',
-            filter: 'drop-shadow(0 0 8px rgba(160, 145, 230, 0.5))'
-          }}
-        >
-          {/* Cat body */}
-          <path
-            d="M50,100 C50,70 80,50 100,50 C120,50 150,70 150,100 C150,130 130,160 100,160 C70,160 50,130 50,100"
-            fill={theme.palette.primary.main}
-          />
-          {/* Cat ears */}
-          <path
-            d="M70,60 L90,80 L60,90 Z"
-            fill={theme.palette.primary.main}
-          />
-          <path
-            d="M130,60 L110,80 L140,90 Z"
-            fill={theme.palette.primary.main}
-          />
-          {/* Cat face */}
-          <circle cx="85" cy="90" r="5" fill="#000" />
-          <circle cx="115" cy="90" r="5" fill="#000" />
-          {/* Glasses */}
-          <rect x="75" y="85" width="20" height="10" rx="5" fill="none" stroke="#000" strokeWidth="2" />
-          <rect x="105" y="85" width="20" height="10" rx="5" fill="none" stroke="#000" strokeWidth="2" />
-          <line x1="95" y1="90" x2="105" y2="90" stroke="#000" strokeWidth="2" />
-          {/* Cat mouth */}
-          <path d="M95,105 Q100,110 105,105" fill="none" stroke="#000" strokeWidth="1" />
-          {/* Cat tail */}
-          <path
-            d="M150,120 Q170,140 180,120"
-            fill="none"
-            stroke={theme.palette.primary.main}
-            strokeWidth="10"
-            strokeLinecap="round"
-          />
-        </Box>
-        {/* Shield */}
-        <Box
-          sx={{
-            position: 'absolute',
-            bottom: 10,
-            left: 10,
-            width: 40,
-            height: 40,
-            animation: 'pulse 2s infinite'
-          }}
-        >
-          <SecurityIcon sx={{ fontSize: 40, color: theme.palette.primary.main }} />
-        </Box>
-      </Box>
-    );
-  };
-
-  // Skill Bubble component
   const SkillBubble = ({ skill, color, delay }) => (
     <Zoom in={true} style={{ transitionDelay: `${delay}ms` }}>
-      <Box 
+      <Box
         sx={{
           bgcolor: color || 'primary.main',
           color: 'white',
@@ -299,32 +299,157 @@ const Portfolio = () => {
     </Zoom>
   );
 
-  // Project Card component
+  // Replace the current CatAvatar component with this one
+const CatAvatar = () => {
+  return (
+    <Box sx={{ 
+      position: 'relative', 
+      width: 220, 
+      height: 220, 
+      margin: '0 auto', 
+      animation: 'float 4s ease-in-out infinite',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }}>
+      <Box
+        component="img"
+        src="/cat-avatar.png"
+        alt="Profile Avatar"
+        sx={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'contain',
+          animation: 'glow 3s ease-in-out infinite',
+          filter: 'drop-shadow(0 0 8px rgba(160, 145, 230, 0.5))',
+          borderRadius: '50%',
+        }}
+      />
+      
+      {/* DevSecOps badge */}
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: 10,
+          right: 10,
+          bgcolor: 'background.paper',
+          borderRadius: '50%',
+          p: 0.5,
+          boxShadow: 3
+        }}
+      >
+        <SecurityIcon sx={{ fontSize: 34, color: 'primary.main' }} />
+      </Box>
+    </Box>
+  );
+};
+
   const ProjectCard = ({ project, index }) => (
     <Slide in={true} direction="up" timeout={500 + (index * 100)}>
-      <StyledCard>
-        <CardContent sx={{ p: 3 }}>
-          <Typography variant="h5" gutterBottom fontWeight="bold">
-            {project.title}
-          </Typography>
-          <Typography variant="body2" sx={{ mb: 2, height: 60 }}>
+      <StyledCard sx={{
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%'
+      }}>
+        <CardContent sx={{ p: 3, flexGrow: 1 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
+            <FolderSpecialIcon sx={{ color: project.color, mr: 1.5, fontSize: 24 }} />
+            <Typography variant="h5" fontWeight="bold">
+              {project.title}
+            </Typography>
+          </Box>
+          <Divider sx={{ mb: 2, borderColor: `${project.color}40` }} />
+          <Typography variant="body2" sx={{ mb: 2, minHeight: 60 }}>
             {project.description}
           </Typography>
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.8, mt: 'auto' }}>
             {project.tech.map((tech, i) => (
-              <Box 
+              <Box
                 key={i}
-                sx={{ 
-                  bgcolor: `${project.color}40`,
+                sx={{
+                  bgcolor: `${project.color}20`,
                   color: 'text.primary',
                   px: 1.5,
                   py: 0.5,
                   borderRadius: 5,
                   fontSize: '0.75rem',
-                  fontWeight: 'bold'
+                  fontWeight: 'bold',
+                  border: `1px solid ${project.color}40`
                 }}
               >
                 {tech}
+              </Box>
+            ))}
+          </Box>
+        </CardContent>
+      </StyledCard>
+    </Slide>
+  );
+
+  const ExperienceCard = ({ experience, index }) => (
+    <Slide in={true} direction={index % 2 === 0 ? "right" : "left"} timeout={500 + (index * 100)}>
+      <StyledCard sx={{ height: '100%', mb: 3 }}>
+        <CardContent sx={{ p: 3 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
+            <BusinessIcon sx={{ color: experience.color, mr: 1.5, fontSize: 24 }} />
+            <Typography variant="h5" fontWeight="bold" color="primary">
+              {experience.role}
+            </Typography>
+          </Box>
+          <Divider sx={{ mb: 2, borderColor: `${experience.color}40` }} />
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+            <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+              {experience.company}
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                bgcolor: `${experience.color}30`,
+                px: 2,
+                py: 0.5,
+                borderRadius: 5,
+                fontWeight: 'medium'
+              }}
+            >
+              {experience.period}
+            </Typography>
+          </Box>
+          <Box sx={{ mb: 2 }}>
+            {experience.description.map((item, i) => (
+              <Typography key={i} variant="body2" sx={{ mb: 1, display: 'flex', alignItems: 'flex-start' }}>
+                <Box
+                  component="span"
+                  sx={{
+                    minWidth: '6px',
+                    height: '6px',
+                    borderRadius: '50%',
+                    bgcolor: experience.color,
+                    display: 'inline-block',
+                    mr: 1.5,
+                    mt: 0.7
+                  }}
+                />
+                {item}
+              </Typography>
+            ))}
+          </Box>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.8, mt: 'auto' }}>
+            {experience.tags && experience.tags.map((tag, i) => (
+              <Box
+                key={i}
+                sx={{
+                  bgcolor: `${experience.color}20`,
+                  color: 'text.primary',
+                  px: 1.5,
+                  py: 0.5,
+                  borderRadius: 5,
+                  fontSize: '0.75rem',
+                  fontWeight: 'bold',
+                  border: `1px solid ${experience.color}40`
+                }}
+              >
+                {tag}
               </Box>
             ))}
           </Box>
@@ -345,22 +470,21 @@ const Portfolio = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container>
-        {/* Navigation */}
-        <Box sx={{ 
-          position: 'fixed', 
-          top: 20, 
-          right: 20, 
-          zIndex: 10, 
-          display: 'flex', 
+        <Box sx={{
+          position: 'fixed',
+          top: 20,
+          right: 20,
+          zIndex: 10,
+          display: 'flex',
           gap: 1,
           flexDirection: 'column',
-          alignItems: 'center' 
+          alignItems: 'center'
         }}>
           <Tooltip title={mode === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}>
-            <IconButton 
-              onClick={toggleTheme} 
-              sx={{ 
-                bgcolor: 'background.paper', 
+            <IconButton
+              onClick={toggleTheme}
+              sx={{
+                bgcolor: 'background.paper',
                 boxShadow: 3,
                 transition: 'all 0.3s ease',
                 '&:hover': {
@@ -373,12 +497,12 @@ const Portfolio = () => {
               {mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
             </IconButton>
           </Tooltip>
-          
+
           <Tooltip title="Contact Me">
-            <IconButton 
-              onClick={() => scrollToSection('contact')} 
-              sx={{ 
-                bgcolor: 'background.paper', 
+            <IconButton
+              onClick={() => scrollToSection('contact')}
+              sx={{
+                bgcolor: 'background.paper',
                 boxShadow: 3,
                 transition: 'all 0.3s ease',
                 '&:hover': {
@@ -391,14 +515,14 @@ const Portfolio = () => {
               <EmailIcon />
             </IconButton>
           </Tooltip>
-          
+
           <Tooltip title="GitHub">
-            <IconButton 
-              component="a" 
-              href="https://github.com/leelee222" 
+            <IconButton
+              component="a"
+              href="https://github.com/leelee222"
               target="_blank"
-              sx={{ 
-                bgcolor: 'background.paper', 
+              sx={{
+                bgcolor: 'background.paper',
                 boxShadow: 3,
                 transition: 'all 0.3s ease',
                 '&:hover': {
@@ -413,12 +537,11 @@ const Portfolio = () => {
           </Tooltip>
         </Box>
 
-        {/* Hero Section */}
-        <Box 
+        <Box
           id="about"
-          sx={{ 
-            minHeight: '100vh', 
-            display: 'flex', 
+          sx={{
+            minHeight: '100vh',
+            display: 'flex',
             alignItems: 'center',
             position: 'relative'
           }}
@@ -435,22 +558,24 @@ const Portfolio = () => {
                 <Typography variant="h5" color="secondary" gutterBottom>
                   Frontend Developer & DevSecOps Junior
                 </Typography>
-                
+
                 <Typography variant="body1" sx={{ mt: 3, mb: 4, maxWidth: '90%' }}>
-                  Aspiring DevOps and Software Engineering professional with hands-on experience in 
-                  front-end development, security, and technical project management.
+                  Aspiring DevOps and Software Engineering professional with a solid foundation in computer science
+                  and hands-on experience in front-end development, digital literacy training, and technical project management.
+                  Eager to further develop my expertise in a dynamic work-study environment and contribute to innovative
+                  technology solutions.
                 </Typography>
-                
+
                 <Box sx={{ display: 'flex', gap: 2 }}>
-                  <AnimatedButton 
-                    variant="contained" 
+                  <AnimatedButton
+                    variant="contained"
                     color="primary"
                     onClick={() => scrollToSection('projects')}
                   >
                     View Projects
                   </AnimatedButton>
-                  <AnimatedButton 
-                    variant="outlined" 
+                  <AnimatedButton
+                    variant="outlined"
                     color="primary"
                     onClick={() => scrollToSection('contact')}
                   >
@@ -463,12 +588,12 @@ const Portfolio = () => {
               </Grid>
             </Grid>
           </Fade>
-          
-          <Box 
-            sx={{ 
-              position: 'absolute', 
-              bottom: 40, 
-              left: '50%', 
+
+          <Box
+            sx={{
+              position: 'absolute',
+              bottom: 40,
+              left: '50%',
               transform: 'translateX(-50%)',
               animation: 'float 2s ease-in-out infinite',
               cursor: 'pointer'
@@ -479,132 +604,215 @@ const Portfolio = () => {
           </Box>
         </Box>
 
-        {/* Skills Section */}
-        <Box id="skills" sx={{ minHeight: '60vh', py: 10 }}>
+        <Box id="skills" sx={{ minHeight: '60vh', py: 8, px: { xs: 1, md: 4 } }}>
           <Fade in={true} timeout={1000}>
-            <Typography variant="h2" color="primary" gutterBottom>
-              Skills
-            </Typography>
+            <Box sx={{ mb: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Typography variant="h2" color="primary" gutterBottom>
+                Skills
+              </Typography>
+              <Divider sx={{ width: '80px', height: '3px', bgcolor: 'primary.main', mb: 4 }} />
+              <Typography variant="body1" sx={{ textAlign: 'center', maxWidth: '800px', mb: 3 }}>
+                My technical toolkit spans DevOps, software development, and general digital competencies.
+              </Typography>
+            </Box>
           </Fade>
-          
-          <Fade in={true} timeout={1500}>
-            <Typography variant="h5" color="secondary" sx={{ mb: 2 }}>
-              DevOps & Security
-            </Typography>
-          </Fade>
-          
-          <Box sx={{ mb: 4 }}>
-            {skills.devops.map((skill, index) => (
-              <SkillBubble 
-                key={index} 
-                skill={skill} 
-                color="#6366f1" 
-                delay={index * 100} 
-              />
-            ))}
+
+          <Box sx={{ mt: 3, maxWidth: '900px', mx: 'auto' }}>
+            <StyledCard sx={{ mb: 4 }}>
+              <CardContent sx={{ p: 3 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
+                  <SecurityIcon sx={{ color: '#6366f1', mr: 1.5, fontSize: 24 }} />
+                  <Typography variant="h5" fontWeight="bold" color="primary">
+                    DevOps & Security
+                  </Typography>
+                </Box>
+                <Divider sx={{ mb: 3, borderColor: '#6366f140' }} />
+                <Box>
+                  {skills.devops.map((skill, index) => (
+                    <SkillBubble
+                      key={index}
+                      skill={skill}
+                      color="#6366f1"
+                      delay={index * 100}
+                    />
+                  ))}
+                </Box>
+              </CardContent>
+            </StyledCard>
+
+            <StyledCard sx={{ mb: 4 }}>
+              <CardContent sx={{ p: 3 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
+                  <CodeIcon sx={{ color: '#8b5cf6', mr: 1.5, fontSize: 24 }} />
+                  <Typography variant="h5" fontWeight="bold" color="primary">
+                    Development
+                  </Typography>
+                </Box>
+                <Divider sx={{ mb: 3, borderColor: '#8b5cf640' }} />
+                <Box>
+                  {skills.development.map((skill, index) => (
+                    <SkillBubble
+                      key={index}
+                      skill={skill}
+                      color="#8b5cf6"
+                      delay={index * 100}
+                    />
+                  ))}
+                </Box>
+              </CardContent>
+            </StyledCard>
+
+            <StyledCard>
+              <CardContent sx={{ p: 3 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
+                  <WorkIcon sx={{ color: '#a78bfa', mr: 1.5, fontSize: 24 }} />
+                  <Typography variant="h5" fontWeight="bold" color="primary">
+                    General
+                  </Typography>
+                </Box>
+                <Divider sx={{ mb: 3, borderColor: '#a78bfa40' }} />
+                <Box>
+                  {skills.general.map((skill, index) => (
+                    <SkillBubble
+                      key={index}
+                      skill={skill}
+                      color="#a78bfa"
+                      delay={index * 100}
+                    />
+                  ))}
+                </Box>
+              </CardContent>
+            </StyledCard>
           </Box>
-          
-          <Fade in={true} timeout={1500}>
-            <Typography variant="h5" color="secondary" sx={{ mb: 2 }}>
-              Development
-            </Typography>
+        </Box>
+
+        <Box id="projects" sx={{ minHeight: '60vh', py: 8, px: { xs: 1, md: 4 } }}>
+          <Fade in={true} timeout={1000}>
+            <Box sx={{ mb: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Typography variant="h2" color="primary" gutterBottom>
+                Projects
+              </Typography>
+              <Divider sx={{ width: '80px', height: '3px', bgcolor: 'primary.main', mb: 4 }} />
+              <Typography variant="body1" sx={{ textAlign: 'center', maxWidth: '800px', mb: 3 }}>
+                Here are some of the key projects I've worked on. Each one has helped me develop my skills
+                in different areas of software engineering and DevOps.
+              </Typography>
+            </Box>
           </Fade>
-          
-          <Box sx={{ mb: 4 }}>
-            {skills.development.map((skill, index) => (
-              <SkillBubble 
-                key={index} 
-                skill={skill} 
-                color="#8b5cf6" 
-                delay={index * 100} 
-              />
-            ))}
+
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Box sx={{ width: '100%', maxWidth: '900px' }}>
+              {projects.map((project, index) => (
+                <Box key={index} sx={{ mb: 4 }}>
+                  <ProjectCard project={project} index={index} />
+                </Box>
+              ))}
+            </Box>
           </Box>
-          
-          <Fade in={true} timeout={1500}>
-            <Typography variant="h5" color="secondary" sx={{ mb: 2 }}>
-              General
-            </Typography>
+        </Box>
+
+        <Box id="work" sx={{ minHeight: '60vh', py: 8, px: { xs: 1, md: 4 } }}>
+          <Fade in={true} timeout={1000}>
+            <Box sx={{ mb: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Typography variant="h2" color="primary" gutterBottom>
+                Work Experience
+              </Typography>
+              <Divider sx={{ width: '80px', height: '3px', bgcolor: 'primary.main', mb: 4 }} />
+              <Typography variant="body1" sx={{ textAlign: 'center', maxWidth: '800px', mb: 3 }}>
+                My professional journey has equipped me with practical experience in frontend development,
+                fullstack solutions, and digital literacy training.
+              </Typography>
+            </Box>
           </Fade>
-          
-          <Box>
-            {skills.general.map((skill, index) => (
-              <SkillBubble 
-                key={index} 
-                skill={skill} 
-                color="#a78bfa" 
-                delay={index * 100} 
-              />
+
+          <Box sx={{ mt: 3, maxWidth: '900px', mx: 'auto' }}>
+            {workExperience.map((exp, index) => (
+              <ExperienceCard key={index} experience={exp} index={index} />
             ))}
           </Box>
         </Box>
 
-        {/* Projects Section */}
-        <Box id="projects" sx={{ minHeight: '60vh', py: 10 }}>
+        <Box id="education" sx={{ minHeight: '50vh', py: 8, px: { xs: 1, md: 4 } }}>
           <Fade in={true} timeout={1000}>
-            <Typography variant="h2" color="primary" gutterBottom>
-              Projects and Work Experience
-            </Typography>
+            <Box sx={{ mb: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Typography variant="h2" color="primary" gutterBottom>
+                Education
+              </Typography>
+              <Divider sx={{ width: '80px', height: '3px', bgcolor: 'primary.main', mb: 4 }} />
+            </Box>
           </Fade>
-          
-          <Grid container spacing={3} sx={{ mt: 4 }}>
-            {projects.map((project, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <ProjectCard project={project} index={index} />
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
 
-        {/* Education & Experience */}
-        <Box id="experience" sx={{ minHeight: '50vh', py: 10 }}>
-          <Fade in={true} timeout={1000}>
-            <Typography variant="h2" color="primary" gutterBottom>
-              Education & Experience
-            </Typography>
-          </Fade>
-          
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={6}>
-              <Slide in={true} direction="right" timeout={800}>
-                <StyledCard sx={{ height: '100%' }}>
-                  <Box sx={{ p: 3 }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                      <SchoolIcon sx={{ color: 'primary.main', mr: 1, fontSize: 28 }} />
-                      <Typography variant="h5" fontWeight="bold">Education</Typography>
-                    </Box>
-                    <Box sx={{ p: 2, borderLeft: `3px solid ${theme.palette.primary.main}` }}>
-                      <Typography variant="h6">EPITECH BENIN</Typography>
-                      <Typography variant="body2" color="text.secondary" gutterBottom>
+          <Grid container spacing={4} justifyContent="center">
+            <Grid item xs={12} md={10} lg={8}>
+              <Slide in={true} direction="up" timeout={800}>
+                <StyledCard sx={{ height: '100%', overflow: 'visible', position: 'relative' }}>
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      top: -25,
+                      left: { xs: 20, md: 40 },
+                      bgcolor: theme.palette.primary.main,
+                      p: 1.5,
+                      borderRadius: 2,
+                      boxShadow: 3
+                    }}
+                  >
+                    <SchoolIcon sx={{ color: 'white', fontSize: 32 }} />
+                  </Box>
+                  <Box sx={{ p: { xs: 3, md: 4 }, pt: { xs: 4, md: 5 } }}>
+                    <Typography variant="h4" fontWeight="bold" color="primary" sx={{ mb: 2 }}>
+                      EPITECH BENIN
+                    </Typography>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+                      <Typography variant="h6" fontWeight="medium">
+                        Bachelor Degree in Computer Science
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          bgcolor: 'primary.main',
+                          color: 'white',
+                          px: 2,
+                          py: 0.5,
+                          borderRadius: 5,
+                          fontWeight: 'medium'
+                        }}
+                      >
                         Oct. 2022 – Present
                       </Typography>
-                      <Typography variant="body2">
-                        Bachelor Degree in Computer Science<br />
-                        Data Structures, Algorithms, DevOps, Software Engineering
-                      </Typography>
                     </Box>
-                  </Box>
-                </StyledCard>
-              </Slide>
-            </Grid>
-            
-            <Grid item xs={12} md={6}>
-              <Slide in={true} direction="left" timeout={800}>
-                <StyledCard sx={{ height: '100%' }}>
-                  <Box sx={{ p: 3 }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                      <WorkIcon sx={{ color: 'primary.main', mr: 1, fontSize: 28 }} />
-                      <Typography variant="h5" fontWeight="bold">Experience</Typography>
-                    </Box>
-                    <Box sx={{ p: 2, borderLeft: `3px solid ${theme.palette.primary.main}` }}>
-                      <Typography variant="h6">TRAINING VOLUNTEER - EPITECH X IMPACT</Typography>
-                      <Typography variant="body2" color="text.secondary" gutterBottom>
-                        July 2024 – Aug 2024
-                      </Typography>
-                      <Typography variant="body2">
-                        Provided hands-on training in Microsoft Office applications and digital security skills.
-                      </Typography>
-                    </Box>
+                    <Divider sx={{ mb: 3, borderColor: 'primary.light' }} />
+                    <Typography variant="h6" sx={{ mb: 1.5 }}>
+                      Relevant Coursework:
+                    </Typography>
+                    <Grid container spacing={2} sx={{ mb: 2 }}>
+                      {['Data Structures', 'Algorithms', 'DevOps', 'Software Engineering'].map((course, i) => (
+                        <Grid item xs={12} sm={6} md={3} key={i}>
+                          <Box
+                            sx={{
+                              bgcolor: `${theme.palette.primary.main}15`,
+                              p: 1.5,
+                              borderRadius: 2,
+                              textAlign: 'center',
+                              border: `1px solid ${theme.palette.primary.main}30`,
+                              height: '100%',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              transition: 'all 0.3s ease',
+                              '&:hover': {
+                                transform: 'translateY(-3px)',
+                                bgcolor: `${theme.palette.primary.main}25`,
+                              }
+                            }}
+                          >
+                            <Typography variant="body1" fontWeight="medium">
+                              {course}
+                            </Typography>
+                          </Box>
+                        </Grid>
+                      ))}
+                    </Grid>
                   </Box>
                 </StyledCard>
               </Slide>
@@ -612,14 +820,13 @@ const Portfolio = () => {
           </Grid>
         </Box>
 
-        {/* Contact Section */}
         <Box id="contact" sx={{ minHeight: '60vh', py: 10, pb: 20 }}>
           <Fade in={true} timeout={1000}>
             <Typography variant="h2" color="primary" gutterBottom>
               Contact Me
             </Typography>
           </Fade>
-          
+
           <Zoom in={true} timeout={1000}>
             <StyledCard>
               <CardContent sx={{ p: 4 }}>
@@ -627,9 +834,9 @@ const Portfolio = () => {
                   Feel free to reach out if you have any questions or opportunities!
                 </Typography>
                 <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                  <TextField 
-                    fullWidth 
-                    variant="outlined" 
+                  <TextField
+                    fullWidth
+                    variant="outlined"
                     label="Your Name"
                     InputProps={{
                       sx: {
@@ -637,9 +844,9 @@ const Portfolio = () => {
                       }
                     }}
                   />
-                  <TextField 
-                    fullWidth 
-                    variant="outlined" 
+                  <TextField
+                    fullWidth
+                    variant="outlined"
                     label="Your Email"
                     InputProps={{
                       sx: {
@@ -647,9 +854,9 @@ const Portfolio = () => {
                       }
                     }}
                   />
-                  <TextField 
-                    fullWidth 
-                    variant="outlined" 
+                  <TextField
+                    fullWidth
+                    variant="outlined"
                     label="Message"
                     multiline
                     rows={4}
@@ -659,9 +866,9 @@ const Portfolio = () => {
                       }
                     }}
                   />
-                  <AnimatedButton 
-                    variant="contained" 
-                    color="primary" 
+                  <AnimatedButton
+                    variant="contained"
+                    color="primary"
                     sx={{ alignSelf: 'flex-end', mt: 2 }}
                     endIcon={<SendIcon />}
                   >
