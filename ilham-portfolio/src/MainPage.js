@@ -607,6 +607,10 @@ const Portfolio = () => {
         </Box>
 
         <Box id="skills" sx={{ mt: 3, maxWidth: '900px', mx: 'auto' }}>
+          <Typography variant="h2" color="primary" gutterBottom>
+            Skills
+          </Typography>
+          <Divider sx={{ width: '80px', height: '3px', bgcolor: 'primary.main', mb: 4, mx: 'auto' }} />
           <StyledCard sx={{ mb: 4 }}>
             <CardContent sx={{ p: 3 }}>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
