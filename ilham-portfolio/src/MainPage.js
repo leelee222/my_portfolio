@@ -500,6 +500,26 @@ const Portfolio = () => {
             </IconButton>
           </Tooltip>
 
+          <Tooltip title="LinkedIn">
+            <IconButton
+              component="a"
+              href="https://www.linkedin.com/in/adios-ilham-152226239/"
+              target="_blank"
+              sx={{
+                bgcolor: 'background.paper',
+                boxShadow: 3,
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'scale(1.1)',
+                  bgcolor: 'primary.main',
+                  color: 'white'
+                }
+              }}
+            >
+              <LinkedInIcon />
+            </IconButton>
+          </Tooltip>
+
           <Tooltip title="Contact Me">
             <IconButton
               onClick={() => scrollToSection('contact')}
