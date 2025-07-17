@@ -268,11 +268,18 @@ const Portfolio = () => {
   ];
 
   const skills = {
-    devops: ["Docker", "Jenkins", "Ansible", "Kubernetes", "GitHub Actions", "GitLab", "CI/CD"],
-    security: ["Nmap", "Metasploit", "Burp Suite", "Wireshark", "Hydra", "SQLMap", "John the Ripper", "OSINT Framework"],
-    osint: ["Maltego", "SpiderFoot", "TheHarvester", "Sherlock", "ExifTool", "OSINT Analysis", "Digital Forensics", "GEOINT"],
-    development: ["Python", "C", "C++", "JavaScript", "React", "Node.js", "SQL", "HTML/CSS", "Flask", "NextJS", "VueJS", "MongoDB", "Git", "Django"],
-    general: ["UI/UX Design", "Figma", "Microsoft Office", "REST API", "CRUD"]
+    devops: {
+      tools: ["Docker", "Jenkins", "Ansible", "Kubernetes", "GitHub Actions", "GitLab", "CI/CD"],
+      focus: "Automation, Containerization, CI/CD"
+    },
+    security: {
+      tools: ["SpiderFoot", "Metaploist", "Maltego", "TheHarvester", "OSINT Framework", "Nmap", "Burp Suite", "SQLMap", "Hydra"],
+      focus: "OSINT, Pentesting, Network Recon, Intelligence Gathering, Digital Investigations"
+    },
+    development: {
+      tools: ["Python", "React", "Node.js", "HTML/CSS", "NextJS", "MongoDB", "Git", "React Native"],
+      focus: "Responsive UI, Web & Mobile Apps"
+    },
   };
 
   const SkillBubble = ({ skill, color, delay }) => (
@@ -578,14 +585,11 @@ const Portfolio = () => {
                   ADIOS Ilham
                 </GlowingText>
                 <Typography variant="h5" color="secondary" gutterBottom>
-                  Frontend Developer & DevSecOps Junior
+                  Junior Pentester and DevSecOps engineer
                 </Typography>
 
                 <Typography variant="body1" sx={{ mt: 3, mb: 4, maxWidth: '90%' }}>
-                  Aspiring DevOps and Software Engineering professional with a solid foundation in computer science
-                  and hands-on experience in front-end development, digital literacy training, and technical project management.
-                  Eager to further develop my expertise in a dynamic work-study environment and contribute to innovative
-                  technology solutions.
+                  Aspiring Pentester and DevSecOps engineer with a foundation in computer science and hands-on experience in frontend development, digital literacy training, and technical project coordination. Currently pursuing the PNPT certification to deepen my offensive security skills. Passionate about securing systems from code to deployment, and eager to contribute to innovative, secure-by-design solutions in dynamic work-study or internship environments.
                 </Typography>
 
                 <Box sx={{ display: 'flex', gap: 2 }}>
@@ -631,6 +635,7 @@ const Portfolio = () => {
             Skills
           </Typography>
           <Divider sx={{ width: '80px', height: '3px', bgcolor: 'primary.main', mb: 4, mx: 'auto' }} />
+
           <StyledCard sx={{ mb: 4 }}>
             <CardContent sx={{ p: 3 }}>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
@@ -639,9 +644,12 @@ const Portfolio = () => {
                   DevOps
                 </Typography>
               </Box>
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontStyle: 'italic' }}>
+                Focus: {skills.devops.focus}
+              </Typography>
               <Divider sx={{ mb: 3, borderColor: '#6366f140' }} />
               <Box>
-                {skills.devops.map((skill, index) => (
+                {skills.devops.tools.map((skill, index) => (
                   <SkillBubble
                     key={index}
                     skill={skill}
@@ -661,9 +669,12 @@ const Portfolio = () => {
                   Cybersecurity
                 </Typography>
               </Box>
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontStyle: 'italic' }}>
+                Focus: {skills.security.focus}
+              </Typography>
               <Divider sx={{ mb: 3, borderColor: '#10b98140' }} />
               <Box>
-                {skills.security.map((skill, index) => (
+                {skills.security.tools.map((skill, index) => (
                   <SkillBubble
                     key={index}
                     skill={skill}
@@ -678,62 +689,21 @@ const Portfolio = () => {
           <StyledCard sx={{ mb: 4 }}>
             <CardContent sx={{ p: 3 }}>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-                <SearchIcon sx={{ color: '#f59e0b', mr: 1.5, fontSize: 24 }} />
-                <Typography variant="h5" fontWeight="bold" color="primary">
-                  OSINT & Investigation
-                </Typography>
-              </Box>
-              <Divider sx={{ mb: 3, borderColor: '#f59e0b40' }} />
-              <Box>
-                {skills.osint.map((skill, index) => (
-                  <SkillBubble
-                    key={index}
-                    skill={skill}
-                    color="#f59e0b"
-                    delay={index * 100}
-                  />
-                ))}
-              </Box>
-            </CardContent>
-          </StyledCard>
-
-          <StyledCard sx={{ mb: 4 }}>
-            <CardContent sx={{ p: 3 }}>
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
                 <CodeIcon sx={{ color: '#8b5cf6', mr: 1.5, fontSize: 24 }} />
                 <Typography variant="h5" fontWeight="bold" color="primary">
-                  Development
+                  Frontend/Mobile Development
                 </Typography>
               </Box>
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontStyle: 'italic' }}>
+                Focus: {skills.development.focus}
+              </Typography>
               <Divider sx={{ mb: 3, borderColor: '#8b5cf640' }} />
               <Box>
-                {skills.development.map((skill, index) => (
+                {skills.development.tools.map((skill, index) => (
                   <SkillBubble
                     key={index}
                     skill={skill}
                     color="#8b5cf6"
-                    delay={index * 100}
-                  />
-                ))}
-              </Box>
-            </CardContent>
-          </StyledCard>
-
-          <StyledCard>
-            <CardContent sx={{ p: 3 }}>
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-                <WorkIcon sx={{ color: '#a78bfa', mr: 1.5, fontSize: 24 }} />
-                <Typography variant="h5" fontWeight="bold" color="primary">
-                  General
-                </Typography>
-              </Box>
-              <Divider sx={{ mb: 3, borderColor: '#a78bfa40' }} />
-              <Box>
-                {skills.general.map((skill, index) => (
-                  <SkillBubble
-                    key={index}
-                    skill={skill}
-                    color="#a78bfa"
                     delay={index * 100}
                   />
                 ))}
