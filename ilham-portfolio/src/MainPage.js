@@ -218,6 +218,12 @@ const Portfolio = () => {
       color: "#6366f1"
     },
     {
+      title: "Gestionnaire de Contrats",
+      description: "Web application for streamlined employment contract management with ReactJS front-end and Django back-end. Features contract tracking, expiration alerts, and compliance management for HR personnel.",
+      tech: ["React", "Django", "Contract Management", "HR System"],
+      color: "#10b981"
+    },
+    {
       title: "Whanos",
       description: "CI/CD infrastructure project integrating Docker, Jenkins, and Kubernetes for automated deployment.",
       tech: ["Docker", "Jenkins", "Kubernetes", "IaC"],
