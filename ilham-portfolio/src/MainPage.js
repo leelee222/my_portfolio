@@ -591,12 +591,13 @@ const Portfolio = () => {
                   ADIOS Ilham
                 </GlowingText>
                 <Typography variant="h5" color="secondary" gutterBottom>
-                  Junior Pentester and DevSecOps engineer
+                  Full Stack Developer & Junior DevSecOps Engineer
                 </Typography>
 
                 <Typography variant="body1" sx={{ mt: 3, mb: 4, maxWidth: '90%' }}>
-                  Aspiring Pentester and DevSecOps engineer with a foundation in computer science and hands-on experience in frontend development, digital literacy training, and technical project coordination. Currently pursuing the PNPT certification to deepen my offensive security skills. Passionate about securing systems from code to deployment, and eager to contribute to innovative, secure-by-design solutions in dynamic work-study or internship environments.
-                </Typography>
+                  Passionate Full Stack Developer at the end of my Bachelor's in Computer Science at EPITECH, with hands-on experience building secure, scalable web and mobile applications. I specialize in end-to-end development from responsive frontends with React/Next.js to robust backends with Node.js and Django, complemented by strong DevSecOps practices.
+                  My expertise spans the complete development lifecycle: designing intuitive user interfaces, architecting secure APIs, managing databases, and implementing CI/CD pipelines with Docker, Jenkins, and Kubernetes. With a keen interest in cybersecurity, I integrate security best practices throughout development, from code review to deployment.
+                  Currently contributing to real-world projects including mobile applications for the petroleum industry and automation platforms, I'm driven by creating digital solutions that are both user-friendly and security-conscious.                </Typography>
 
                 <Box sx={{ display: 'flex', gap: 2 }}>
                   <AnimatedButton
