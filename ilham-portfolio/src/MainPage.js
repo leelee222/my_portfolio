@@ -239,6 +239,17 @@ const Portfolio = () => {
 
   const workExperience = [
     {
+      company: "YemalinTech",
+      role: "Frontend & Mobile Development Intern",
+      period: "April 2025- September 2025",
+      description: [
+        "Developed and maintained mobile app (StationMap) and web dashboard for petroleum group",
+        "Built responsive and intuitive interfaces using Next.js (web) and React Native (mobile)",
+        "Improved UI/UX consistency across platforms ensuring seamless user experience"
+      ],
+      color: "#8b5cf6"
+    },
+    {
       company: "CDPAT-AFRIQUE",
       role: "Fullstack Development Intern",
       period: "Oct 2024 - Jan 2025",
