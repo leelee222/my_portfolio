@@ -822,7 +822,7 @@ const Portfolio = () => {
                           fontWeight: 'medium'
                         }}
                       >
-                        Oct. 2022 – Present
+                        Oct. 2022 – Sept 2025
                       </Typography>
                     </Box>
                     <Divider sx={{ mb: 3, borderColor: 'primary.light' }} />
