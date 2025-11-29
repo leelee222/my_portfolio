@@ -312,30 +312,62 @@ const Portfolio = () => {
   // };
 
   const skills = {
+    devsecops: {
+      tools: [
+        "GitHub Actions",
+        "Jenkins",
+        "SonarCloud",
+        "Trivy",
+        "Gitleaks",
+        "Checkov",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Ansible"
+      ],
+      focus: "Secure CI/CD, IaC Security, Cloud Security, Container Security"
+    },
     devops: {
       tools: [
-        "Docker", "Kubernetes", "Terraform", "Ansible",
-        "GitHub Actions", "GitLab CI", "Jenkins", "CI/CD",
-        "Minikube"
+        "Docker",
+        "Jenkins",
+        "Ansible",
+        "Kubernetes",
+        "GitHub Actions",
+        "GitLab",
+        "CI/CD"
       ],
-      focus: "Automation, Containerization, IaC, Pipeline Security"
+      focus: "Automation, Containerization, Continuous Delivery"
     },
     security: {
       tools: [
-        "Checkov", "Trivy", "Gitleaks", "SonarQube",
-        "Nmap", "Burp Suite", "SQLMap", "Hydra",
-        "OSINT Framework", "Maltego", "TheHarvester"
+        "SpiderFoot",
+        "Metasploit",
+        "Maltego",
+        "TheHarvester",
+        "OSINT Framework",
+        "Nmap",
+        "Burp Suite",
+        "SQLMap",
+        "Hydra"
       ],
-      focus: "DevSecOps, IaC Security, OSINT, Pentesting"
+      focus: "OSINT, Pentesting, Reconnaissance, Digital Investigations"
     },
     development: {
       tools: [
-        "Python", "Node.js", "React", "Next.js",
-        "HTML/CSS", "MongoDB", "React Native", "Git"
+        "Python",
+        "React",
+        "Node.js",
+        "HTML/CSS",
+        "NextJS",
+        "MongoDB",
+        "Git",
+        "React Native"
       ],
-      focus: "Web & Mobile Development, API Design, UI/UX"
+      focus: "Responsive UI, Web & Mobile Applications"
     }
   };
+
 
   const SkillBubble = ({ skill, color, delay }) => (
     <Zoom in={true} style={{ transitionDelay: `${delay}ms` }}>
