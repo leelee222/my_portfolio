@@ -234,6 +234,18 @@ const Portfolio = () => {
       description: "Interactive portfolio website built with React and Material UI with dark/light mode and animations.",
       tech: ["React", "Material UI", "JavaScript", "Responsive Design"],
       color: "#a78bfa"
+    },
+    {
+      title: "Secure Pipeline Demo",
+      description: "End-to-end DevSecOps pipeline integrating CI/CD, Docker security, IaC scans, and automated Kubernetes deployment.",
+      tech: ["GitHub Actions", "Docker", "Trivy", "Gitleaks", "SonarQube", "Kubernetes", "Minikube"],
+      color: "#10b981"
+    },
+    {
+      title: "IaC Cloud Security Demo",
+      description: "Infrastructure-as-Code project provisioning secure AWS resources with Terraform, hardened using Checkov, and integrated into an automated cloud deployment pipeline.",
+      tech: ["Terraform", "AWS", "Checkov", "IAM", "S3", "EC2", "CloudTrail"],
+      color: "#f59e0b"
     }
   ];
 
@@ -284,19 +296,45 @@ const Portfolio = () => {
     }
   ];
 
+  // const skills = {
+  //   devops: {
+  //     tools: ["Docker", "Jenkins", "Ansible", "Kubernetes", "GitHub Actions", "GitLab", "CI/CD"],
+  //     focus: "Automation, Containerization, CI/CD"
+  //   },
+  //   security: {
+  //     tools: ["SpiderFoot", "Metaploist", "Maltego", "TheHarvester", "OSINT Framework", "Nmap", "Burp Suite", "SQLMap", "Hydra"],
+  //     focus: "OSINT, Pentesting, Network Recon, Intelligence Gathering, Digital Investigations"
+  //   },
+  //   development: {
+  //     tools: ["Python", "React", "Node.js", "HTML/CSS", "NextJS", "MongoDB", "Git", "React Native"],
+  //     focus: "Responsive UI, Web & Mobile Apps"
+  //   },
+  // };
+
   const skills = {
     devops: {
-      tools: ["Docker", "Jenkins", "Ansible", "Kubernetes", "GitHub Actions", "GitLab", "CI/CD"],
-      focus: "Automation, Containerization, CI/CD"
+      tools: [
+        "Docker", "Kubernetes", "Terraform", "Ansible",
+        "GitHub Actions", "GitLab CI", "Jenkins", "CI/CD",
+        "Minikube"
+      ],
+      focus: "Automation, Containerization, IaC, Pipeline Security"
     },
     security: {
-      tools: ["SpiderFoot", "Metaploist", "Maltego", "TheHarvester", "OSINT Framework", "Nmap", "Burp Suite", "SQLMap", "Hydra"],
-      focus: "OSINT, Pentesting, Network Recon, Intelligence Gathering, Digital Investigations"
+      tools: [
+        "Checkov", "Trivy", "Gitleaks", "SonarQube",
+        "Nmap", "Burp Suite", "SQLMap", "Hydra",
+        "OSINT Framework", "Maltego", "TheHarvester"
+      ],
+      focus: "DevSecOps, IaC Security, OSINT, Pentesting"
     },
     development: {
-      tools: ["Python", "React", "Node.js", "HTML/CSS", "NextJS", "MongoDB", "Git", "React Native"],
-      focus: "Responsive UI, Web & Mobile Apps"
-    },
+      tools: [
+        "Python", "Node.js", "React", "Next.js",
+        "HTML/CSS", "MongoDB", "React Native", "Git"
+      ],
+      focus: "Web & Mobile Development, API Design, UI/UX"
+    }
   };
 
   const SkillBubble = ({ skill, color, delay }) => (
