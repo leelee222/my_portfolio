@@ -296,21 +296,6 @@ const Portfolio = () => {
     }
   ];
 
-  // const skills = {
-  //   devops: {
-  //     tools: ["Docker", "Jenkins", "Ansible", "Kubernetes", "GitHub Actions", "GitLab", "CI/CD"],
-  //     focus: "Automation, Containerization, CI/CD"
-  //   },
-  //   security: {
-  //     tools: ["SpiderFoot", "Metaploist", "Maltego", "TheHarvester", "OSINT Framework", "Nmap", "Burp Suite", "SQLMap", "Hydra"],
-  //     focus: "OSINT, Pentesting, Network Recon, Intelligence Gathering, Digital Investigations"
-  //   },
-  //   development: {
-  //     tools: ["Python", "React", "Node.js", "HTML/CSS", "NextJS", "MongoDB", "Git", "React Native"],
-  //     focus: "Responsive UI, Web & Mobile Apps"
-  //   },
-  // };
-
   const skills = {
     devsecops: {
       tools: [
@@ -722,6 +707,31 @@ const Portfolio = () => {
             Skills
           </Typography>
           <Divider sx={{ width: '80px', height: '3px', bgcolor: 'primary.main', mb: 4, mx: 'auto' }} />
+
+          <StyledCard sx={{ mb: 4 }}>
+            <CardContent sx={{ p: 3 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
+                <SecurityIcon sx={{ color: '#ef4444', mr: 1.5, fontSize: 24 }} />
+                <Typography variant="h5" fontWeight="bold" color="primary">
+                  DevSecOps
+                </Typography>
+              </Box>
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontStyle: 'italic' }}>
+                Focus: {skills.devsecops.focus}
+              </Typography>
+              <Divider sx={{ mb: 3, borderColor: '#ef444440' }} />
+              <Box>
+                {skills.devsecops.tools.map((skill, index) => (
+                  <SkillBubble
+                    key={index}
+                    skill={skill}
+                    color="#ef4444"
+                    delay={index * 100}
+                  />
+                ))}
+              </Box>
+            </CardContent>
+          </StyledCard>
 
           <StyledCard sx={{ mb: 4 }}>
             <CardContent sx={{ p: 3 }}>
