@@ -244,7 +244,7 @@ const Portfolio = () => {
     {
       title: "IaC Cloud Security Demo",
       description: "Infrastructure-as-Code project provisioning secure AWS resources with Terraform, hardened using Checkov, and integrated into an automated cloud deployment pipeline.",
-      tech: ["Terraform", "AWS", "Checkov", "IAM", "S3", "EC2", "CloudTrail"],
+      tech: ["Terraform", "AWS", "Checkov", "IAM", "S3", "EC2", "CloudWatch"],
       color: "#f59e0b"
     }
   ];
