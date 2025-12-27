@@ -246,6 +246,24 @@ const Portfolio = () => {
       description: "Infrastructure-as-Code project provisioning secure AWS resources with Terraform, hardened using Checkov, and integrated into an automated cloud deployment pipeline.",
       tech: ["Terraform", "AWS", "Checkov", "IAM", "S3", "EC2", "CloudWatch"],
       color: "#f59e0b"
+    },
+    {
+      title: "Secrets Management Demo",
+      description: "Secure secrets management implementation for applications and CI/CD pipelines. Eliminated hardcoded credentials and enforced secure secret injection using centralized secret storage.",
+      tech: ["Vault", "AWS Secrets Manager", "GitHub Actions", "Docker", "CI/CD Security"],
+      color: "#ec4899"
+    },
+    {
+      title: "Monitoring & Observability Demo",
+      description: "Comprehensive monitoring and observability stack for applications and infrastructure. Features CloudWatch integration for metrics and logs, custom dashboards, SNS alerting (Email/Slack), and CI/CD alerts via GitHub Actions. Infrastructure provisioned with Terraform.",
+      tech: ["AWS CloudWatch", "CloudWatch Logs", "CloudWatch Metrics", "SNS", "Terraform", "GitHub Actions", "Python", "Bash"],
+      color: "#8b5cf6"
+    },
+    {
+      title: "Vulnerability Management Demo",
+      description: "Automated vulnerability management workflow integrated into CI/CD pipelines. Includes dependency scanning, container scanning, and vulnerability prioritization.",
+      tech: ["Trivy", "Snyk", "SonarCloud", "GitHub Actions", "Docker", "CVE Analysis"],
+      color: "#f97316"
     }
   ];
 
@@ -305,12 +323,15 @@ const Portfolio = () => {
         "Trivy",
         "Gitleaks",
         "Checkov",
+        "Snyk",
         "Docker",
         "Kubernetes",
         "Terraform",
-        "Ansible"
+        "Ansible",
+        "Vault",
+        "AWS Secrets Manager"
       ],
-      focus: "Secure CI/CD, IaC Security, Cloud Security, Container Security"
+      focus: "Secure CI/CD, IaC Security, Cloud Security, Container Security, Secrets Management"
     },
     devops: {
       tools: [
@@ -320,9 +341,12 @@ const Portfolio = () => {
         "Kubernetes",
         "GitHub Actions",
         "GitLab",
-        "CI/CD"
+        "Terraform",
+        "AWS CloudWatch",
+        "CloudWatch Logs",
+        "SNS"
       ],
-      focus: "Automation, Containerization, Continuous Delivery"
+      focus: "Automation, Containerization, Continuous Delivery, Monitoring & Observability"
     },
     security: {
       tools: [
@@ -343,13 +367,17 @@ const Portfolio = () => {
         "Python",
         "React",
         "Node.js",
+        "Django",
+        "Next.js",
+        "React Native",
         "HTML/CSS",
-        "NextJS",
         "MongoDB",
         "Git",
-        "React Native"
+        "Bash",
+        "HCL",
+        "YAML"
       ],
-      focus: "Responsive UI, Web & Mobile Applications"
+      focus: "Full Stack Development, Web & Mobile Applications, Scripting & Automation"
     }
   };
 
