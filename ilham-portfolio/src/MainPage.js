@@ -349,33 +349,28 @@ const Portfolio = () => {
   const skills = {
     devsecops: {
       tools: [
-        "GitHub Actions",
-        "Jenkins",
-        "SonarCloud",
         "Trivy",
         "Gitleaks",
         "Checkov",
         "Snyk",
-        "Docker",
-        "Kubernetes",
-        "Terraform",
-        "Ansible",
+        "SonarCloud",
         "Vault",
-        "AWS Secrets Manager"
+        "AWS Secrets Manager",
+        "OWASP ZAP",
+        "Dependency-Check"
       ],
       focus: "Secure CI/CD, IaC Security, Cloud Security, Container Security, Secrets Management"
     },
     devops: {
       tools: [
         "Docker",
-        "Jenkins",
-        "Ansible",
         "Kubernetes",
-        "GitHub Actions",
-        "GitLab",
         "Terraform",
+        "Ansible",
+        "Jenkins",
+        "GitHub Actions",
+        "GitLab CI/CD",
         "AWS CloudWatch",
-        "CloudWatch Logs",
         "SNS"
       ],
       focus: "Automation, Containerization, Continuous Delivery, Monitoring & Observability"
@@ -717,11 +712,18 @@ const Portfolio = () => {
                   ADIOS Ilham
                 </GlowingText>
                 <Typography variant="h5" color="secondary" gutterBottom>
-                  Full Stack Developer & Junior DevSecOps Engineer
+                  DevSecOps Engineer & OSINT Specialist
                 </Typography>
 
                 <Typography variant="body1" sx={{ mt: 3, mb: 4, maxWidth: '90%' }}>
-                  Passionate Full Stack Developer at the end of my Bachelor's in Computer Science at EPITECH, with hands-on experience building secure, scalable web and mobile applications. I specialize in end-to-end development from responsive frontends with React/Next.js to robust backends with Node.js and Django, complemented by strong DevSecOps practices. My expertise spans designing intuitive user interfaces, architecting secure APIs, and implementing CI/CD pipelines with Docker and Kubernetes. With a keen interest in cybersecurity, I integrate security best practices throughout development. Recently completed internship developing mobile applications for the petroleum industry and now contributing to automation platforms, driven by creating digital solutions that are both user-friendly and security-conscious.
+                  DevSecOps Engineer and Full Stack Developer with a Bachelor's in Computer Science from EPITECH, 
+                  specializing in securing the entire software development lifecycle. I integrate security from code to 
+                  deployment, implementing automated security testing, vulnerability management, and secure CI/CD pipelines 
+                  with tools like Docker, Kubernetes, Trivy, and Terraform. With strong expertise in OSINT techniques and 
+                  penetration testing, I conduct thorough reconnaissance and security assessments. Currently pursuing PNPT 
+                  certification while building scalable applications with React, Next.js, Django, and React Native. 
+                  My mission is to create robust, security-first solutions that protect systems at every layer while 
+                  maintaining seamless user experiences.
                 </Typography>
 
                 <Box sx={{ display: 'flex', gap: 2 }}>
