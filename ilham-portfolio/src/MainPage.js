@@ -234,12 +234,18 @@ const getTheme = (mode) => createTheme({
 });
 
 const Portfolio = () => {
-  const [mode, setMode] = useState('dark');
+  const [mode, setMode] = useState(() => {
+    return localStorage.getItem('theme') || 'dark';
+  });
   const [activeSection, setActiveSection] = useState('about');
   const theme = React.useMemo(() => getTheme(mode), [mode]);
 
   const toggleTheme = () => {
-    setMode(prevMode => prevMode === 'dark' ? 'light' : 'dark');
+    setMode(prevMode => {
+      const newMode = prevMode === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', newMode);
+      return newMode;
+    });
   };
 
   const projects = [
@@ -462,7 +468,6 @@ const Portfolio = () => {
           }}
         />
 
-        {/* DevSecOps badge */}
         <Box
           sx={{
             position: 'absolute',
@@ -702,9 +707,10 @@ const Portfolio = () => {
             position: 'relative'
           }}
         >
-          <Fade in={true} timeout={1000}>
-            <Grid container spacing={4} alignItems="center">
-              <Grid item xs={12} md={7}>
+          <Box sx={{ maxWidth: '900px', mx: 'auto', width: '100%', px: { xs: 2, md: 0 } }}>
+            <Fade in={true} timeout={1000}>
+              <Grid container spacing={4} alignItems="center">
+                <Grid item xs={12} md={7}>
                 <Typography variant="h6" color="primary" fontWeight="bold" sx={{ mb: 1 }}>
                   👋 Hello, I'm
                 </Typography>
@@ -715,14 +721,14 @@ const Portfolio = () => {
                   DevSecOps Engineer & OSINT Specialist
                 </Typography>
 
-                <Typography variant="body1" sx={{ mt: 3, mb: 4, maxWidth: '90%' }}>
-                  DevSecOps Engineer and Full Stack Developer with a Bachelor's in Computer Science from EPITECH, 
-                  specializing in securing the entire software development lifecycle. I integrate security from code to 
-                  deployment, implementing automated security testing, vulnerability management, and secure CI/CD pipelines 
-                  with tools like Docker, Kubernetes, Trivy, and Terraform. With strong expertise in OSINT techniques and 
-                  penetration testing, I conduct thorough reconnaissance and security assessments. Currently pursuing PNPT 
-                  certification while building scalable applications with React, Next.js, Django, and React Native. 
-                  My mission is to create robust, security-first solutions that protect systems at every layer while 
+                <Typography variant="body1" sx={{ mt: 3, mb: 4, maxWidth: '90%', lineHeight: 2 }}>
+                  DevSecOps Engineer and Full Stack Developer with a Bachelor's in Computer Science from EPITECH,
+                  specializing in securing the entire software development lifecycle. I integrate security from code to
+                  deployment, implementing automated security testing, vulnerability management, and secure CI/CD pipelines
+                  with tools like Docker, Kubernetes, Trivy, and Terraform. With strong expertise in OSINT techniques and
+                  penetration testing, I conduct thorough reconnaissance and security assessments. Currently pursuing PNPT
+                  certification while building scalable applications with React, Next.js, Django, and React Native.
+                  My mission is to create robust, security-first solutions that protect systems at every layer while
                   maintaining seamless user experiences.
                 </Typography>
 
@@ -741,6 +747,14 @@ const Portfolio = () => {
                   >
                     Contact Me
                   </AnimatedButton>
+                  <AnimatedButton
+                    variant="outlined"
+                    color="primary"
+                    component="a"
+                    href="/blog"
+                  >
+                    Blog
+                  </AnimatedButton>
                 </Box>
               </Grid>
               <Grid item xs={12} md={5} sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -748,6 +762,7 @@ const Portfolio = () => {
               </Grid>
             </Grid>
           </Fade>
+          </Box>
 
           <Box
             sx={{
@@ -1000,7 +1015,6 @@ const Portfolio = () => {
                       ))}
                     </Grid>
 
-                    {/* Integrated Cybersecurity Achievements in the same card */}
                     <Divider sx={{ mb: 3, borderColor: 'primary.light' }} />
                     <Typography variant="h6" sx={{ mb: 2, color: 'primary.main' }}>
                       Cybersecurity Achievements:
@@ -1095,128 +1109,6 @@ const Portfolio = () => {
             </Grid>
           </Grid>
         </Box>
-
-        {/* Remove the separate divider and Cybersecurity Achievements section */}
-
-        {/* <Box id="education" sx={{ minHeight: '50vh', py: 8, px: { xs: 1, md: 4 } }}>
-          <Fade in={true} timeout={1000}>
-            <Box sx={{ mb: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <Typography variant="h2" color="primary" gutterBottom>
-                Education
-              </Typography>
-              <Divider sx={{ width: '80px', height: '3px', bgcolor: 'primary.main', mb: 4 }} />
-            </Box>
-          </Fade>
-
-          <Grid container spacing={4} justifyContent="center">
-            <Grid item xs={12} md={10} lg={8}>
-              <Slide in={true} direction="up" timeout={800}>
-                <StyledCard sx={{ height: '100%', overflow: 'visible', position: 'relative' }}>
-                  <Box
-                    sx={{
-                      position: 'absolute',
-                      top: -25,
-                      left: { xs: 20, md: 40 },
-                      bgcolor: theme.palette.primary.main,
-                      p: 1.5,
-                      borderRadius: 2,
-                      boxShadow: 3
-                    }}
-                  >
-                    <SchoolIcon sx={{ color: 'white', fontSize: 32 }} />
-                  </Box>
-                  <Box sx={{ p: { xs: 3, md: 4 }, pt: { xs: 4, md: 5 } }}>
-                    <Typography variant="h4" fontWeight="bold" color="primary" sx={{ mb: 2 }}>
-                      EPITECH BENIN
-                    </Typography>
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-                      <Typography variant="h6" fontWeight="medium">
-                        Bachelor Degree in Computer Science
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          bgcolor: 'primary.main',
-                          color: 'white',
-                          px: 2,
-                          py: 0.5,
-                          borderRadius: 5,
-                          fontWeight: 'medium'
-                        }}
-                      >
-                        Oct. 2022 – Present
-                      </Typography>
-                    </Box>
-                    <Divider sx={{ mb: 3, borderColor: 'primary.light' }} />
-                    <Typography variant="h6" sx={{ mb: 1.5 }}>
-                      Relevant Coursework:
-                    </Typography>
-                    <Grid container spacing={2} sx={{ mb: 2 }}>
-                      {['Data Structures', 'Algorithms', 'DevOps', 'Software Engineering'].map((course, i) => (
-                        <Grid item xs={12} sm={6} md={3} key={i}>
-                          <Box
-                            sx={{
-                              bgcolor: `${theme.palette.primary.main}15`,
-                              p: 1.5,
-                              borderRadius: 2,
-                              textAlign: 'center',
-                              border: `1px solid ${theme.palette.primary.main}30`,
-                              height: '100%',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              transition: 'all 0.3s ease',
-                              '&:hover': {
-                                transform: 'translateY(-3px)',
-                                bgcolor: `${theme.palette.primary.main}25`,
-                              }
-                            }}
-                          >
-                            <Typography variant="body1" fontWeight="medium">
-                              {course}
-                            </Typography>
-                          </Box>
-                        </Grid>
-                      ))}
-                    </Grid>
-                  </Box>
-                </StyledCard>
-              </Slide>
-            </Grid>
-          </Grid>
-        </Box>
-
-        <Divider sx={{ my: 3, borderColor: 'primary.light' }} />
-
-        <Typography variant="h6" sx={{ mb: 1.5 }}>
-          Cybersecurity Achievements:
-        </Typography>
-
-        <Box sx={{ mb: 2 }}>
-          <Box sx={{ display: 'flex', alignItems: 'flex-start', mb: 2 }}>
-            <SecurityIcon sx={{ color: theme.palette.primary.main, mr: 1.5, fontSize: 20, mt: 0.5 }} />
-            <Box>
-              <Typography variant="body1" fontWeight="medium">
-                Hackerlab 2024 – Top 10 (CTF & Cybersecurity)
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Competed in various challenges including web vulnerabilities and OSINT exploitation
-              </Typography>
-            </Box>
-          </Box>
-
-          <Box sx={{ display: 'flex', alignItems: 'flex-start', mb: 2 }}>
-            <SearchIcon sx={{ color: theme.palette.primary.main, mr: 1.5, fontSize: 20, mt: 0.5 }} />
-            <Box>
-              <Typography variant="body1" fontWeight="medium">
-                OSINT Investigations
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Conducted OSINT investigations on anonymized targets – Research and analysis of public data
-              </Typography>
-            </Box>
-          </Box>
-        </Box> */}
 
         <Box id="contact" sx={{ minHeight: '60vh', py: 10, pb: 20 }}>
           <Fade in={true} timeout={1000}>
