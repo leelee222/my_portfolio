@@ -112,11 +112,43 @@ const getTheme = (mode) => createTheme({
   },
   typography: {
     fontFamily: "'Lexend', 'Roboto', sans-serif",
-    h2: {
+    fontSize: 16,
+    h1: {
+      fontSize: '3.5rem',
       fontWeight: 700,
       letterSpacing: '-0.5px',
     },
+    h2: {
+      fontSize: '3rem',
+      fontWeight: 700,
+      letterSpacing: '-0.5px',
+    },
+    h3: {
+      fontSize: '2.5rem',
+      fontWeight: 700,
+    },
+    h4: {
+      fontSize: '2rem',
+      fontWeight: 600,
+    },
     h5: {
+      fontSize: '1.5rem',
+      fontWeight: 600,
+    },
+    h6: {
+      fontSize: '1.25rem',
+      fontWeight: 600,
+    },
+    body1: {
+      fontSize: '1.125rem',
+      lineHeight: 1.7,
+    },
+    body2: {
+      fontSize: '1rem',
+      lineHeight: 1.6,
+    },
+    button: {
+      fontSize: '1rem',
       fontWeight: 600,
     },
   },
